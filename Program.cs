@@ -8,6 +8,8 @@ namespace MediaDecimal
         {
             bool terminar = false;
             double resultado = 0;
+            double máximo = 0;
+            double mínimo = 0;
             while (!terminar)
             {
                 int número;
@@ -27,20 +29,20 @@ namespace MediaDecimal
                         double n;
                         Console.Write($"\nNúmero #{i}: ");
                         bool nbool = Double.TryParse(Console.ReadLine(), out n);
+                        máximo = Math.Max(máximo, n);
                         resultado = resultado + n;
                         if (!nbool)
                         {
                             Console.WriteLine("Valor inválido, pressione uma tecla para inserir outro valor.");
                         }
-                        else
-                        {
-                            i = i + 1;
-                        }
+                        i++;
+                        double min = n;
+                        mínimo = Math.Min(min, n);
                     }
                     Console.WriteLine($"\nSoma...: {resultado}");
                     Console.WriteLine($"Média...: {resultado / número}");
-                    Console.WriteLine($"Maior...: {máximo}");
-                    Console.WriteLine($"Menor...: {mínimo}");
+                    Console.WriteLine($"Máximo...: {máximo}");
+                    Console.WriteLine($"Mínimo...: {mínimo}");
                     terminar = true;
                 }
             }
